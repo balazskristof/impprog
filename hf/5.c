@@ -1,9 +1,9 @@
 /*
-5. Írj így programot, ami skalárszorzást végez két tetszõleges hosszú vektoron!
-Kérj be egy N egész számot, majd csinálj két N-hosszú vektor
-(allokálj dinamikusan két N-hosszú tömböt)
-töltesd fel a vektorok elemeit a felhasználóval,
-majd számítsd ki a skalárszorzatukat!
+5. Ãrj Ã­gy programot, ami skalÃ¡rszorzÃ¡st vÃ©gez kÃ©t tetszÃµleges hosszÃº vektoron!
+KÃ©rj be egy N egÃ©sz szÃ¡mot, majd csinÃ¡lj kÃ©t N-hosszÃº vektor
+(allokÃ¡lj dinamikusan kÃ©t N-hosszÃº tÃ¶mbÃ¶t)
+tÃ¶ltesd fel a vektorok elemeit a felhasznÃ¡lÃ³val,
+majd szÃ¡mÃ­tsd ki a skalÃ¡rszorzatukat!
 https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition
 */
 #include <stdio.h>
@@ -36,6 +36,9 @@ int main()
 	}
 	
 	printf("eredmeny: %d", skalar);
+	
+	free(vector1);
+	free(vector2);
 	
 	return 0;
 }
