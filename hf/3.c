@@ -1,22 +1,28 @@
 /*
-3. Írj egy programot, ami kiírja a parancssori argumentumokat vízszintesen tükrözve!
-példa:
+3. Ãrj egy programot, ami kiÃ­rja a parancssori argumentumokat vÃ­zszintesen tÃ¼krÃ¶zve!
+pÃ©lda:
 	bemenet:	The Ape Of Naples
-    kimenet:	selpaN fO epA ehT
+	kimenet:	selpaN fO epA ehT
 */
 #include <stdio.h> // printf, scanf
-#include <string.h> // strrev
+#include <string.h> // strlen
 
 int main(int argc, char* argv[])
 {
-	/* a ciklust visszafelé indítjuk el
-	   0-ig nem megyünk el, mert argv[0] a program nevét tartalmazza */
+	/* a ciklust visszafelÃ© indÃ­tjuk el
+	   0-ig nem megyÃ¼nk el, mert argv[0] a program nevÃ©t tartalmazza */
 	int i;
 	for (i = argc - 1; i > 0; i--)
 	{
-		/* kiírás
-		   strrev(string): megfordítja a stringet */
-		printf("%s ", strrev(argv[i]));
+		/* visszafelÃ© indÃ­tunk egy ciklust
+		   most az argumentumok karakterein megyÃ¼nk vÃ©gig Ã©s Ã­rjuk ki Å‘ket*/
+        int l = strlen(argv[i]) - 1;
+		int j;
+		for (j = l; j >= 0; j--)
+		{
+			printf("%c", argv[i][j]);
+		}
+		printf(" ");
 	}
 	
 	return 0;
