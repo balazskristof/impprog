@@ -1,30 +1,37 @@
 /*
-2. Írj egy függvényt, ami megmondja egy számról, hogy palindrom-e.
+2. Ãrj egy fÃ¼ggvÃ©nyt, ami megmondja egy szÃ¡mrÃ³l, hogy palindrom-e.
 pl. 1003001, 4224
 */
 #include <stdio.h> // printf, scanf
 
-int main()
+void palindrom_check(int n)
 {
-	// beolvasás
-	int szam;
-	scanf("%d", szam);
-	
-	// számítás
-	// az eredeti számot berakjuk a tempbe, amit lebontunk 10-el osztva
-	// a forditottSzamot felszorozzuk 10-el és hozzáadjuk a maradékot
-	// végül felépül az eredeti számunk tükörképe
-	int temp = szam, maradek = 0, forditottSzam = 0;
+	// szÃ¡mÃ­tÃ¡s
+	// az eredeti szÃ¡mot berakjuk a tempbe, amit lebontunk 10-el osztva
+	// a forditottSzamot felszorozzuk 10-el Ã©s hozzÃ¡adjuk a maradÃ©kot
+	// vÃ©gÃ¼l felÃ©pÃ¼l az eredeti szÃ¡munk tÃ¼kÃ¶rkÃ©pe
+	int temp = n, maradek, forditottSzam = 0;
 	while (temp != 0)
 	{
-		maradek += temp % 10;
+		maradek = temp % 10;
 		forditottSzam = forditottSzam * 10 + maradek;
 		temp /= 10;
 	}
 	
-	// kiírás
-	if (szam == forditottSzam) printf("palindrom");
+	// kiÃ­rÃ¡s
+	if (forditottSzam == n) printf("palindrom");
 	else printf("nem palindrom");
+	
+	return;
+}
+
+int main()
+{
+	// beolvasÃ¡s
+	int szam;
+	scanf("%d", &szam);
+	
+	palindrom_check(szam);
 	
 	return 0;
 }
