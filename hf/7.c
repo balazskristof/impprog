@@ -1,3 +1,7 @@
+/*
+7. Írj egy programot, ami véletlenszerűen generál N db színes labdát, bekér egy színt a felhasználótól, majd kiírja, hogy hány a felhasználó által megadottal egyező színű labda van!
+A színek kezeléséhez használj felsorolási típust!
+*/
 #include <stdio.h> // printf, scanf
 #include <stdlib.h> // malloc, free, rand, srand
 #include <time.h> // time
