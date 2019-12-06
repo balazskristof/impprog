@@ -4,29 +4,38 @@ A színek kezeléséhez használj felsorolási típust!
 */
 #include <stdio.h> // printf, scanf
 #include <stdlib.h> // malloc, free, rand, srand
+#include <string.h> // strcmp
 #include <time.h> // time
+
+typedef enum szinek_t { PIROS, ZOLD, KEK } szin;
+// PIROS = 0, ZOLD = 1, KEK = 2
+
+int szin_szamolas(int* labdak, int n, szin szin_in)
+{
+    int db = 0;
+    for (int i = 0; i < n; i++)
+        if (szin_in == labdak[i]) db++;
+    return db;
+}
 
 int main()
 {
     srand(time(NULL)); // megadjuk a program futtatásakor aktuális időt seednek
-    enum szinek_t { piros, zold, kek, db }; // ha a db az utolsó elem, akkor mindig annyi lesz az értéke, ahány szín van előtte
-    // piros = 0, zold = 1, kek = 2, db = 3
     int N = rand() % 100 + 1; // a labdák darabszáma (1-100)
     int* labdak = (int*)malloc(sizeof(int)*N);
     int i;
     for (i = 0; i < N; i++)
     {
-        labdak[i] = rand() % db; // számokat generálunk 0-tól (db-1)-ig
+        labdak[i] = rand() % 3; // számokat generálunk 0-tól (db-1)-ig
     }
-    printf("valassz szint:\n0 - piros\n1 - zold\n2 - kek\n"); // utasítjuk a felhasználót
-    int valasztas;
-    scanf("%d", &valasztas); // beolvassuk a beírt szín számát
-    int egyezes = 0;
-    for (i = 0; i < N; i++)
-    {
-        if (labdak[i] == valasztas) egyezes++;
-    }
-    printf("%d labdabol %d szin egyezik", N, egyezes);
+    printf("valassz szint:\npiros, zold, kek\n"); // utasítjuk a felhasználót
+    char input[256];
+    scanf("%s", input); // beolvassuk a beírt szín számát
+    szin szin_in;
+    if (strcmp(input, "piros") == 0) szin_in = PIROS;
+    if (strcmp(input, "zold") == 0) szin_in = ZOLD;
+    if (strcmp(input, "kek") == 0) szin_in = KEK;
+    printf("%d-bol %d db %s szinu labda van", N, szin_szamolas(labdak, N, szin_in), input);
     free(labdak);
     return 0;
 }
