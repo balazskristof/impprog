@@ -1,9 +1,9 @@
 /*
-5. Írj így programot, ami skalárszorzást végez két tetszõleges hosszú vektoron!
-Kérj be egy N egész számot, majd csinálj két N-hosszú vektor
-(allokálj dinamikusan két N-hosszú tömböt)
-töltesd fel a vektorok elemeit a felhasználóval,
-majd számítsd ki a skalárszorzatukat!
+5. Ãrj Ã­gy programot, ami skalÃ¡rszorzÃ¡st vÃ©gez kÃ©t tetszÅ‘leges hosszÃº vektoron!
+KÃ©rj be egy N egÃ©sz szÃ¡mot, majd csinÃ¡lj kÃ©t N-hosszÃº vektor
+(allokÃ¡lj dinamikusan kÃ©t N-hosszÃº tÃ¶mbÃ¶t)
+tÃ¶ltesd fel a vektorok elemeit a felhasznÃ¡lÃ³val,
+majd szÃ¡mÃ­tsd ki a skalÃ¡rszorzatukat!
 https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition
 */
 #include <stdio.h> // printf, scanf
@@ -11,18 +11,18 @@ https://en.wikipedia.org/wiki/Dot_product#Algebraic_definition
 
 int main()
 {
-	// beolvasás 1
+	// beolvasÃ¡s 1
 	int N;
 	printf("vektorok hossza: ");
 	scanf("%d", &N);
 	
-	/* allokálás
-	   allokáljuk a két vektort calloc(memória blokk hossza, egy elem mérete)-al
-	   a calloc elé zárójelbe írjuk az elemek típusát (egyezikt a változó típusával) */
+	/* allokÃ¡lÃ¡s
+	   allokÃ¡ljuk a kÃ©t vektort calloc-al
+	   a calloc elÃ© zÃ¡rÃ³jelbe Ã­rjuk az elemek tÃ­pusÃ¡t (egyezik a vÃ¡ltozÃ³ tÃ­pusÃ¡val) */
 	int* vector1 = (int*) calloc(N, sizeof(int));
 	int* vector2 = (int*) calloc(N, sizeof(int));
 	
-	// beolvasás 2
+	// beolvasÃ¡s 2
 	int i;
 	printf("elso vektor:\n");
 	for (i = 0; i < N; i++)
@@ -35,17 +35,17 @@ int main()
 		scanf("%d", &vector2[i]);
 	}
 	
-	// feldolgozás
+	// feldolgozÃ¡s
 	int skalar = 0;
 	for (i = 0; i < N; i++)
 	{
-		skalar += vector1[i]*vector2[i]; // mátrix szorzás
+		skalar += vector1[i]*vector2[i]; // mÃ¡trix szorzÃ¡s
 	}
 	
-	// kiírás
+	// kiÃ­rÃ¡s
 	printf("eredmeny: %d", skalar);
 	
-	// memória ürítés
+	// memÃ³ria Ã¼rÃ­tÃ©s
 	free(vector1);
 	free(vector2);
 	
