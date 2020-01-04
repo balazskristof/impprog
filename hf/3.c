@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	{
 		/* visszafelé indítunk egy ciklust
 		   most az argumentumok karakterein megyünk végig és írjuk ki őket*/
-        int l = strlen(argv[i]) - 1;
+        	int l = strlen(argv[i]) - 1;
 		int j;
 		for (j = l; j >= 0; j--)
 		{
