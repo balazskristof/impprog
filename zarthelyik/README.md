@@ -1,2 +1,0 @@
-# Zárthelyik
-**TBA**
