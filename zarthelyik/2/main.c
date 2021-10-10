@@ -1,10 +1,11 @@
 #include "stdio.h"
+#include "string.h"
 #include "stdlib.h"
 #include "sumoftwoints.h"
 
 #define PARANCSSOR
 
-int main(int argc, const char** argv)
+int main(int argc, char** argv)
 {
 	int result, a, b;
 	// parancssori paraméter feldolgozás előtti főprogram
@@ -28,20 +29,12 @@ int main(int argc, const char** argv)
 	int* array = (int*)malloc(N * sizeof(int));
 	if (!array) return 1;
 	
-	int i = 0, j = 0, n = 0;
-	while (argv[3][i] != '\0')
-	{
-		if (argv[3][i] != ':')
-		{
-			n = n * 10 + (argv[3][i] - 48);
-			array[j] = n;
-		}
-		else
-		{
-			j++;
-			n = 0;
-		}
+	char* itemN = strtok(argv[3], ":");
+	int i = 0;
+	while (itemN != NULL) {
+		array[i] = atoi(itemN);
 		i++;
+		itemN = strtok(NULL, ":");
 	}
 	
 	result = SumOfTwoInts(array, item, N, &a, &b);
