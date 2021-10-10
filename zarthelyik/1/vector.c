@@ -18,7 +18,7 @@ void dispose(vector* v)
     v->count = 0;
     v->capacity = 0;
 }
-int append(vector* v, int e)
+int append(vector* v, VECTOR_TYPE e)
 {
     if (v->count == v->capacity) return 0;
 	v->elements[v->count] = e;
@@ -33,7 +33,7 @@ int retrieve(vector v, unsigned int i)
 /*
  * BESZÚRÁS ÉS TÖRLÉS
  */
-int insert(vector* v, unsigned int i, int e)
+int insert(vector* v, unsigned int i, VECTOR_TYPE e)
 {
 	if (v->count < i || v->count == v->capacity) return 0;
 	v->count++;
@@ -62,7 +62,7 @@ int set_capacity(vector* v, unsigned int c)
 	v->elements = new;
 	return 1;
 }
-int safe_append(vector* v, int e)
+int safe_append(vector* v, VECTOR_TYPE e)
 {
 	if (v->count < v->capacity || set_capacity(v, v->capacity * 2))
 	{
@@ -71,7 +71,7 @@ int safe_append(vector* v, int e)
 	}
 	return 0;
 }
-int safe_insert(vector* v, unsigned int i, int e)
+int safe_insert(vector* v, unsigned int i, VECTOR_TYPE e)
 {
 	if (v->count < v->capacity || set_capacity(v, v->capacity * 2))
 	{
