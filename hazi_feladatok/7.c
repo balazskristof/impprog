@@ -7,7 +7,7 @@ A színek kezeléséhez használj felsorolási típust!
 #include <string.h> // strcmp
 #include <time.h> // time
 
-typedef enum szinek_t { PIROS, ZOLD, KEK } szin;
+typedef enum szinek_t { PIROS, ZOLD, KEK, DARAB } szin;
 // PIROS = 0, ZOLD = 1, KEK = 2
 
 int szin_szamolas(int* labdak, int n, szin szin_in)
@@ -26,7 +26,7 @@ int main()
     int i;
     for (i = 0; i < N; i++)
     {
-        labdak[i] = rand() % 3; // számokat generálunk 0-tól (db-1)-ig
+        labdak[i] = rand() % DARAB; // számokat generálunk 0-tól (db-1)-ig
     }
     printf("valassz szint:\npiros, zold, kek\n"); // utasítjuk a felhasználót
     char input[256];
